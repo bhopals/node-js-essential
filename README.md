@@ -19,5 +19,26 @@ It was created by Ryan Dahl and other developers in 2009.
 ### Node Core ###
 
 **The Global Object** - Like in JavaScript we have "windows" object that is globally available, NODEJs also 
-has some Global Objects that can be accessible from any location of NODEJS project. All these listed objects in the link (https://nodejs.org/api/globals.html) would be available and accessible anywhere in the project without having to require anything.
+has some Global Objects that can be accessible from any location of NODEJS project. All these listed objects in the link (https://nodejs.org/api/globals.html) would be available and accessible anywhere in the project without having to require anything. This is because all the listed objects in the link are part of the global namespace.
+
+```
+//FileName - global.js
+console.log("Hello Bhopal");
+global.console.log("Hello Singh");
+
+//Go to the terminal and run command
+node global.js
+
+//Output
+Hello Bhopal
+Hello Singh
+
+console.log(__dirname);
+console.log(__filename);
+
+//Output
+G:\Udemy\MERN\node-js-essential
+G:\Udemy\MERN\node-js-essential\global.js
+
+```
 
