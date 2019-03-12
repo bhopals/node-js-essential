@@ -76,3 +76,38 @@ if(!user || !greeting) {
 //OUTPUT
 Weclomce Bhopal, Good Day
 ```
+
+
+**Standard Input/Standart Output Object** - These two objects offer us a way to communicate with a process
+while it is running. For now we will use these objects to read and write data to the terminal. It can also 
+be used to communicate with the child process.
+
+```js
+
+
+var questions = [
+    "What is your name?",
+    "What is your fav hobby?",
+    "what is your preferred programming language?"
+
+]
+
+var answers = [];
+
+//stdout
+function ask(i) {
+    process.stdout.write(`${questions[i]}`);
+    process.stdout.write("  > ");
+}
+
+//stdin
+process.stdin.on('data', function(data){
+    answers.push(data.toString().trim());
+    if(answers.length < questions.length) {
+        ask(answers.length);
+    } else {
+        process.exit
+    }
+});
+
+```
