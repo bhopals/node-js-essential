@@ -210,3 +210,9 @@ Module.export is a JavaScript Object. We can use it like any javascript object. 
 ```js
 var Person = require("./lib/Person");
 ```
+
+**Creating Child Process with exec** 
+
+
+**Creating Child Process with spawn**  
+
