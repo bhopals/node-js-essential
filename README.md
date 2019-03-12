@@ -203,3 +203,10 @@ ben.emit('speak', "You may delay, but time will not.");
 //OUTPUT
 //Ben Franklin: You may delay, but time will not.
 ```
+
+**Module Export**
+Module.export is a JavaScript Object. We can use it like any javascript object. Module.export is the object that is returned by the require statement. When we require this module, we will return anything which is on Module.export.
+
+```js
+var Person = require("./lib/Person");
+```
