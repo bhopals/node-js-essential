@@ -106,8 +106,16 @@ process.stdin.on('data', function(data){
     if(answers.length < questions.length) {
         ask(answers.length);
     } else {
-        process.exit
+        process.exit();
     }
 });
 
+process.on('exit', function(){
+    process.stdout.write("  ALL DONE!!! ");
+}
+
 ```
+
+
+**Global Timing Functions**
+ - setInterval Method
