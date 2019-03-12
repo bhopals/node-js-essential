@@ -174,3 +174,32 @@ Once inteface is registered, we can use prompt method to capture user input and 
         
     });
 ```
+
+
+**Event Emitter** - Event Emitter is the NodeJS's implementation of publisher/subscriber design pattern, and it allow us to create listeners for an emit custom Events. We can create any custom event using EventEmitter 
+constructor. The name of the event can be any custom name. With the emitter, we can define an event and register a callback. Once done, we can emit that event.
+
+```js
+var EventEmitter = require('events').EventEmitter;
+var util = require('util');
+
+var Person = function(name) {
+	this.name = name;
+};
+
+util.inherits(Person, EventEmitter);
+
+var ben = new Person("Ben Franklin");
+
+ben.on('speak', function(said) {
+
+	console.log(`${this.name}: ${said}`);
+
+});
+
+
+ben.emit('speak', "You may delay, but time will not.");
+
+//OUTPUT
+//Ben Franklin: You may delay, but time will not.
+```
