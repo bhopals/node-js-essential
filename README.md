@@ -42,3 +42,37 @@ G:\Udemy\MERN\node-js-essential\global.js
 
 ```
 
+
+**The Process Object**
+One important object that is available to us globally is the process object. It can be access from anywhere and it contains the functionality that allow us to interact with information about the current process instance. We can use process object to get environment information, read environment variable, communicate with the terminal, or parent processes through standard input or standard output, we can even exit the current process. In short, it gives us everything related to current process instance. All these values would be stored in **process.env** which stands for the argument variables used to start the process.
+
+```js
+console.log(process.argv);
+//output
+
+G:\Udemy\MERN\node-js-essential>node app.js
+[ 'C:\\Program Files\\nodejs\\node.exe',
+  'G:\\Test\\MERN\\node-js-essential\\app.js' ]
+
+```
+
+We can inercept all the variables passed to the command options
+
+```js
+function grab(flag) {
+    var index = process.argv.indexOf(flag);
+    return index === -1 ? null : process.argv[index+1];
+}
+
+var greeting = grab('--greeting');
+var user = grab('--user');
+
+if(!user || !greeting) {
+    console.log("You Blew it!");
+} else {
+    console.log(`Weclomce ${user}, ${greeting}`);
+}
+
+//OUTPUT
+Weclomce Bhopal, Good Day
+```
