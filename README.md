@@ -124,3 +124,53 @@ process.on('exit', function(){
 
 
  ### Node Modules###
+  - require()
+  - path
+  - v8
+
+  ```js
+    var path = require('path');
+    var util = require('util');
+    var v8 = require('v8');
+  ```
+
+  **ReadLine()** - It uses to ask questions to our terminal user.
+
+  ```js
+    var readline = require('readline');
+    var rl = readline.createInterface(process.stdin, process.stdout);
+```
+Once inteface is registered, we can use prompt method to capture user input and output
+
+```js
+    rl.question("What is the name of a real person? ", function(answer) {
+
+        realPerson.name = answer;
+
+        rl.setPrompt(`What would ${realPerson.name} say? `);
+
+        rl.prompt();
+
+        rl.on('line', function(saying) {
+
+            realPerson.sayings.push(saying.trim());
+
+            if (saying.toLowerCase().trim() === 'exit') {
+                rl.close();
+            } else {
+                rl.setPrompt(`What else would ${realPerson.name} say? ('exit' to leave) `);
+                rl.prompt();
+            }
+
+        });
+
+    });
+
+
+    rl.on('close', function() {
+
+        console.log("%s is a real person that says %j", realPerson.name, realPerson.sayings);
+        process.exit();
+        
+    });
+```
