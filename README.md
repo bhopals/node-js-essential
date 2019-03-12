@@ -119,3 +119,8 @@ process.on('exit', function(){
 
 **Global Timing Functions**
  - setInterval Method
+
+
+
+
+ ### Node Modules###
